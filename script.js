@@ -10,7 +10,8 @@ const levels = [
   {
     id: 1,
     name: "Level 1 – First Steps",
-    description: "Learn how to move and turn the capybara on a simple grid.",
+    description:
+      "Learn how to move and turn the capybara on a simple grid.",
     start: { x: 0, y: 4, dirIndex: 0 },
     apples: [{ x: 2, y: 2 }],
     goal: { x: 4, y: 0 },
@@ -42,7 +43,13 @@ const levels = [
     start: { x: 0, y: 2, dirIndex: 0 },
     apples: [{ x: 2, y: 2 }],
     goal: { x: 4, y: 0 },
-    availableCommands: ["move", "turnLeft", "turnRight", "repeatForward2", "repeatForward3"],
+    availableCommands: [
+      "move",
+      "turnLeft",
+      "turnRight",
+      "repeatForward2",
+      "repeatForward3"
+    ],
     obstacles: [
       { x: 1, y: 1 },
       { x: 2, y: 1 }
@@ -51,20 +58,26 @@ const levels = [
     gates: []
   },
 
-  // LEVEL 4 – Rock Corners (corregido)
+  // LEVEL 4 – Rock Corners
   {
     id: 4,
     name: "Level 4 – Rock Corners",
-    description: "The apple is surrounded by rocks. Find a safe path around them.",
+    description:
+      "The apple is surrounded by rocks. Find a safe path around them.",
     start: { x: 0, y: 4, dirIndex: 0 },
     apples: [{ x: 2, y: 2 }],
     goal: { x: 4, y: 0 },
-    availableCommands: ["move", "turnLeft", "turnRight", "repeatForward2", "repeatForward3"],
+    availableCommands: [
+      "move",
+      "turnLeft",
+      "turnRight",
+      "repeatForward2",
+      "repeatForward3"
+    ],
     obstacles: [
       { x: 2, y: 1 }, // arriba
-      // { x: 2, y: 3 }, // abajo – quitado para poder entrar
       { x: 1, y: 2 }, // izquierda
-      { x: 3, y: 2 }  // derecha
+      { x: 3, y: 2 } // derecha
     ],
     switches: [],
     gates: []
@@ -74,11 +87,18 @@ const levels = [
   {
     id: 5,
     name: "Level 5 – Rock Garden",
-    description: "The garden is full of rocks. Use turns and repeats to reach the apple.",
+    description:
+      "The garden is full of rocks. Use turns and repeats to reach the apple.",
     start: { x: 0, y: 4, dirIndex: 0 },
     apples: [{ x: 3, y: 1 }],
     goal: { x: 4, y: 0 },
-    availableCommands: ["move", "turnLeft", "turnRight", "repeatForward2", "repeatForward3"],
+    availableCommands: [
+      "move",
+      "turnLeft",
+      "turnRight",
+      "repeatForward2",
+      "repeatForward3"
+    ],
     obstacles: [
       { x: 2, y: 0 },
       { x: 2, y: 1 },
@@ -94,11 +114,18 @@ const levels = [
   {
     id: 6,
     name: "Level 6 – Long Corridor",
-    description: "This is a long corridor! Use repeat to write shorter programs.",
+    description:
+      "This is a long corridor! Use repeat to write shorter programs.",
     start: { x: 0, y: 4, dirIndex: 0 },
     apples: [{ x: 4, y: 2 }],
     goal: { x: 4, y: 0 },
-    availableCommands: ["move", "turnLeft", "turnRight", "repeatForward2", "repeatForward3"],
+    availableCommands: [
+      "move",
+      "turnLeft",
+      "turnRight",
+      "repeatForward2",
+      "repeatForward3"
+    ],
     obstacles: [
       { x: 1, y: 4 },
       { x: 2, y: 4 },
@@ -110,132 +137,19 @@ const levels = [
     gates: []
   },
 
-  // LEVEL 7 – First Switch (gate con sentido + obstáculos)
+  // LEVEL 7 – First Switch
   {
     id: 7,
     name: "Level 7 – First Switch",
-    description: "One apple is locked behind a gate. Step on the switch to open it.",
+    description:
+      "One apple is locked behind a gate. Step on the switch to open it.",
     start: { x: 0, y: 4, dirIndex: 0 },
     apples: [
-      { x: 0, y: 1 },  // apple libre
-      { x: 4, y: 4 },  // apple libre
-      { x: 4, y: 1 }   // apple bloqueada
+      { x: 0, y: 1 },
+      { x: 4, y: 4 },
+      { x: 4, y: 1 }
     ],
     goal: { x: 2, y: 0 },
-    availableCommands: ["move", "turnLeft", "turnRight", "repeatForward2", "repeatForward3"],
-    obstacles: [
-      { x: 4, y: 0 }, // arriba de la apple bloqueada
-      { x: 4, y: 2 }, // abajo de la apple bloqueada
-      { x: 3, y: 2 }  // evita entrar por la diagonal
-    ],
-    switches: [
-      { x: 2, y: 3, gateIndex: 0 } // abre la única gate
-    ],
-    gates: [
-      { x: 3, y: 1 } // puerta delante de la apple bloqueada
-    ]
-  },
-
-  // LEVEL 8 – Double Switch Puzzle (un switch por gate)
-  {
-    id: 8,
-    name: "Level 8 – Double Switch Puzzle",
-    description: "Some apples are trapped. Use both switches to free them.",
-    start: { x: 0, y: 4, dirIndex: 0 },
-    apples: [
-      { x: 0, y: 0 }, // libre
-      { x: 4, y: 1 }, // tras gate 1
-      { x: 4, y: 3 }  // tras gate 2
-    ],
-    goal: { x: 4, y: 0 },
-    availableCommands: ["move", "turnLeft", "turnRight", "repeatForward2", "repeatForward3"],
-    // Obstáculos para que las gates NO sean de adorno
-    obstacles: [
-      // alrededor de la apple (4,1)
-      { x: 4, y: 0 },
-      { x: 4, y: 2 },
-      { x: 3, y: 2 },
-      // alrededor de la apple (4,3)
-      { x: 4, y: 4 },
-      { x: 3, y: 4 }
-    ],
-    switches: [
-      { x: 1, y: 3, gateIndex: 0 }, // abre gates[0]
-      { x: 2, y: 1, gateIndex: 1 }  // abre gates[1]
-    ],
-    gates: [
-      { x: 3, y: 1 },
-      { x: 3, y: 3 }
-    ]
-  },
-
-// LEVEL 9 – Locked Corridor (REDISEÑADO)
-{
-  id: 9,
-  name: "Level 9 – Locked Corridor",
-  description: "A locked gate blocks the way. Use the switch to open it and collect all apples.",
-  start: { x: 0, y: 4, dirIndex: 0 },
-
-  apples: [
-    { x: 1, y: 1 }, // atrapada detrás de la gate
-    { x: 4, y: 2 }  // en el corredor derecho
-  ],
-
-  goal: { x: 3, y: 0 },
-
-  availableCommands: ["move", "turnLeft", "turnRight", "repeatForward2", "repeatForward3"],
-
-  // Rocas que forman las paredes del corredor
-  obstacles: [
-    // fila superior (salvo la casilla del goal)
-    { x: 0, y: 0 },
-    { x: 1, y: 0 },
-    { x: 2, y: 0 },
-    { x: 4, y: 0 },
-
-    // alrededor de la apple (1,1)
-    { x: 0, y: 1 },
-    { x: 2, y: 1 },
-    { x: 4, y: 1 },
-
-    // pared izquierda en fila 2
-    { x: 0, y: 2 },
-
-    // paredes laterales en fila 3
-    { x: 0, y: 3 },
-    { x: 4, y: 3 },
-
-    // rocas abajo a la derecha
-    { x: 2, y: 4 },
-    { x: 4, y: 4 }
-  ],
-
-  // Un switch que abre la gate
-  switches: [
-    { x: 3, y: 4, gateIndex: 0 } // pisar aquí abre la gate en (1,2)
-  ],
-
-  // Gate que bloquea el acceso a la apple de arriba
-  gates: [
-    { x: 1, y: 2 } // Gate 0
-  ]
-},
-
-  // LEVEL 10 – Capybara Labyrinth (CORREGIDO)
-  {
-    id: 10,
-    name: "Level 10 – Capybara Labyrinth",
-    description: "Final challenge! A full maze with rocks, switches and apples.",
-    start: { x: 0, y: 4, dirIndex: 0 },
-
-    apples: [
-      { x: 2, y: 4 },
-      { x: 2, y: 1 },
-      { x: 4, y: 2 }
-    ],
-
-    goal: { x: 4, y: 0 },
-
     availableCommands: [
       "move",
       "turnLeft",
@@ -243,7 +157,116 @@ const levels = [
       "repeatForward2",
       "repeatForward3"
     ],
+    obstacles: [
+      { x: 4, y: 0 },
+      { x: 4, y: 2 },
+      { x: 3, y: 2 }
+    ],
+    switches: [{ x: 2, y: 3, gateIndex: 0 }],
+    gates: [{ x: 3, y: 1 }]
+  },
 
+// LEVEL 8 – Double Switch Puzzle
+{
+  id: 8,
+  name: "Level 8 – Double Switch Puzzle",
+  description: "Some apples are trapped. Use both switches to free them.",
+  start: { x: 0, y: 4, dirIndex: 0 },
+
+  // Manzana libre + 2 atrapadas
+  apples: [
+    { x: 0, y: 0 }, // libre
+    { x: 4, y: 1 }, // tras gate 1
+    { x: 4, y: 3 }  // tras gate 2
+  ],
+
+  // 🔁 Mover la casa a la esquina superior derecha
+  goal: { x: 4, y: 0 },
+
+  availableCommands: [
+    "move",
+    "turnLeft",
+    "turnRight",
+    "repeatForward2",
+    "repeatForward3"
+  ],
+
+  obstacles: [
+    // ⚠️ QUITAMOS { x: 4, y: 0 } porque ahora ahí está la casa
+    { x: 4, y: 2 },
+    { x: 3, y: 2 },
+    { x: 4, y: 4 },
+    { x: 3, y: 4 }
+  ],
+
+  switches: [
+    { x: 1, y: 3, gateIndex: 0 },
+    { x: 2, y: 1, gateIndex: 1 }
+  ],
+
+  gates: [
+    { x: 3, y: 1 },
+    { x: 3, y: 3 }
+  ]
+},
+
+  // LEVEL 9 – Locked Corridor (rediseñado)
+  {
+    id: 9,
+    name: "Level 9 – Locked Corridor",
+    description:
+      "A locked gate blocks the way. Use the switch to open it and collect all apples.",
+    start: { x: 0, y: 4, dirIndex: 0 },
+    apples: [
+      { x: 1, y: 1 },
+      { x: 4, y: 2 }
+    ],
+    goal: { x: 3, y: 0 },
+    availableCommands: [
+      "move",
+      "turnLeft",
+      "turnRight",
+      "repeatForward2",
+      "repeatForward3"
+    ],
+    obstacles: [
+      { x: 0, y: 0 },
+      { x: 1, y: 0 },
+      { x: 2, y: 0 },
+      { x: 4, y: 0 },
+      { x: 0, y: 1 },
+      { x: 2, y: 1 },
+      { x: 4, y: 1 },
+      { x: 0, y: 2 },
+      { x: 0, y: 3 },
+      { x: 4, y: 3 },
+      { x: 2, y: 4 },
+      { x: 4, y: 4 }
+    ],
+    switches: [{ x: 3, y: 4, gateIndex: 0 }],
+    gates: [{ x: 1, y: 2 }]
+  },
+
+  // LEVEL 10 – Capybara Labyrinth
+  {
+    id: 10,
+    name: "Level 10 – Capybara Labyrinth",
+    description:
+      "Final challenge! A full maze with rocks, switches and apples.",
+    start: { x: 0, y: 4, dirIndex: 0 },
+    apples: [
+      { x: 2, y: 4 },
+      { x: 2, y: 1 },
+      { x: 4, y: 2 }
+    ],
+    goal: { x: 4, y: 0 },
+    availableCommands: [
+      "move",
+      "turnLeft",
+      "turnRight",
+      "repeatForward2",
+      "repeatForward3"
+    ],
     obstacles: [
       { x: 0, y: 3 },
       { x: 0, y: 2 },
@@ -254,24 +277,20 @@ const levels = [
       { x: 3, y: 1 },
       { x: 3, y: 4 }
     ],
-
     switches: [
       { x: 1, y: 4, gateIndex: 0 },
       { x: 1, y: 2, gateIndex: 1 }
     ],
-
     gates: [
       { x: 2, y: 3 },
       { x: 3, y: 2 }
     ]
   }
-]; // <-- MUY IMPORTANTE: cerrar el array aquí
-
-
-let currentLevelIndex = 0;
+];
 
 // ==== PROGRESO (sessionStorage) ====
 
+let currentLevelIndex = 0;
 let completedLevels = [];
 
 function loadProgress() {
@@ -289,7 +308,10 @@ function loadProgress() {
 }
 
 function saveProgress() {
-  sessionStorage.setItem("capyCompletedLevels", JSON.stringify(completedLevels));
+  sessionStorage.setItem(
+    "capyCompletedLevels",
+    JSON.stringify(completedLevels)
+  );
 }
 
 // ==== ESTADO DE JUEGO ====
@@ -337,7 +359,7 @@ const btnNextLevel = document.getElementById("btn-next-level");
 
 loadProgress();
 createGrid();
-renderGrid();
+resetGameState();
 updateProgramList();
 populateLevelList();
 showMessage("Ready! Create your program and press RUN.");
@@ -389,17 +411,14 @@ function populateLevelList() {
       badge.textContent = "Completed ✓";
       info.appendChild(badge);
     } else if (!isUnlocked) {
-      const badge = document.createElement("div");
-      badge.classList.add("level-badge", "locked-badge");
-      badge.textContent = "Locked 🔒";
-      info.appendChild(badge);
+  
     }
 
     const btnPlay = document.createElement("button");
     btnPlay.classList.add("primary");
 
     if (!isUnlocked) {
-      btnPlay.textContent = "Locked";
+      btnPlay.textContent = "Locked 🔒";
       btnPlay.disabled = true;
     } else {
       btnPlay.textContent = isCompleted ? "Play Again" : "Play";
@@ -458,8 +477,14 @@ function updateCommandVisibility() {
   btnMove.classList.toggle("hidden", !available.includes("move"));
   btnLeft.classList.toggle("hidden", !available.includes("turnLeft"));
   btnRight.classList.toggle("hidden", !available.includes("turnRight"));
-  btnRepeat2.classList.toggle("hidden", !available.includes("repeatForward2"));
-  btnRepeat3.classList.toggle("hidden", !available.includes("repeatForward3"));
+  btnRepeat2.classList.toggle(
+    "hidden",
+    !available.includes("repeatForward2")
+  );
+  btnRepeat3.classList.toggle(
+    "hidden",
+    !available.includes("repeatForward3")
+  );
 }
 
 // ==== GRID ====
@@ -489,7 +514,6 @@ function renderGrid() {
     const cell = getCell(o.x, o.y);
     if (cell) {
       cell.classList.add("obstacle");
-      cell.textContent = "🪨";
     }
   });
 
@@ -499,17 +523,15 @@ function renderGrid() {
       const cell = getCell(g.x, g.y);
       if (cell) {
         cell.classList.add("gate");
-        cell.textContent = "🚧";
       }
     }
   });
 
-  // Switches (solo visual)
+  // Switches
   switchesArr.forEach(s => {
     const cell = getCell(s.x, s.y);
     if (cell) {
       cell.classList.add("switch");
-      cell.textContent = "🔘";
     }
   });
 
@@ -519,7 +541,6 @@ function renderGrid() {
       const cell = getCell(a.x, a.y);
       if (cell) {
         cell.classList.add("apple");
-        cell.textContent = "🍎";
       }
     }
   });
@@ -528,20 +549,14 @@ function renderGrid() {
   const goalCell = getCell(goal.x, goal.y);
   if (goalCell) {
     goalCell.classList.add("goal");
-    goalCell.textContent = "🏠";
   }
 
-  // Capybara
+  // Capybara con dirección
   const capyCell = getCell(capy.x, capy.y);
   if (capyCell) {
     capyCell.classList.add("capy");
     const dir = DIRECTIONS[capy.dirIndex];
-    let icon = "🐹";
-    if (dir === "up") icon = "🐹⬆️";
-    else if (dir === "right") icon = "🐹➡️";
-    else if (dir === "down") icon = "🐹⬇️";
-    else if (dir === "left") icon = "🐹⬅️";
-    capyCell.textContent = icon;
+    capyCell.classList.add(`dir-${dir}`);
   }
 }
 
@@ -576,8 +591,10 @@ function updateProgramList() {
     if (cmd.type === "move") li.textContent = "Move Forward";
     else if (cmd.type === "turnLeft") li.textContent = "Turn Left";
     else if (cmd.type === "turnRight") li.textContent = "Turn Right";
-    else if (cmd.type === "repeatForward2") li.textContent = "Repeat Forward 2x";
-    else if (cmd.type === "repeatForward3") li.textContent = "Repeat Forward 3x";
+    else if (cmd.type === "repeatForward2")
+      li.textContent = "Repeat Forward 2x";
+    else if (cmd.type === "repeatForward3")
+      li.textContent = "Repeat Forward 3x";
 
     li.style.cursor = "pointer";
     li.title = "Click to delete this command";
@@ -618,7 +635,8 @@ function buildExecutionSteps(program) {
     else if (cmd.type === "turnLeft") steps.push("turnLeft");
     else if (cmd.type === "turnRight") steps.push("turnRight");
     else if (cmd.type === "repeatForward2") steps.push("move", "move");
-    else if (cmd.type === "repeatForward3") steps.push("move", "move", "move");
+    else if (cmd.type === "repeatForward3")
+      steps.push("move", "move", "move");
   }
   return steps;
 }
@@ -693,13 +711,12 @@ function moveForward() {
     }
   });
 
-  // Activar switches (abrir gates)
+  // Activar switches
   switchesArr.forEach(s => {
     if (s.x === capy.x && s.y === capy.y) {
       if (typeof s.gateIndex === "number" && gates[s.gateIndex]) {
         gates[s.gateIndex].opened = true;
       } else {
-        // si el switch no tiene gateIndex, abre todas
         gates.forEach(g => (g.opened = true));
       }
     }
